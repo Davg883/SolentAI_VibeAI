@@ -1,9 +1,21 @@
 {
   "version": 2,
-  "builds": [
+  "routes": [
     {
-      "src": "vibe-pitch-app/index.html",
-      "use": "@vercel/static"
+      "src": "/Images/(.*)",
+      "dest": "/Images/$1"
+    },
+    {
+      "src": "/style.css",
+      "dest": "/vibe-pitch-app/style.css"
+    },
+    {
+      "src": "/script.js",
+      "dest": "/vibe-pitch-app/script.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/vibe-pitch-app/index.html"
     }
   ]
 }
