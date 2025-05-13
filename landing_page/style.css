@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light, clean background */
+    color: #333; /* Dark grey for text, good contrast */
+}
+
+header {
+    background: linear-gradient(135deg, #007bff, #00bfff); /* Blue gradient - optimistic, tech-ish */
+    color: #fff;
+    padding: 2em 1em;
+    text-align: center;
+    border-bottom: 5px solid #0056b3; /* Darker blue accent */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+section {
+    padding: 2em 1.5em;
+    margin: 1em auto;
+    max-width: 900px; /* Max width for A4-like feel on screen */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    color: #007bff; /* Primary blue for section headers */
+    margin-top: 0;
+    font-size: 1.8em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+section h3 {
+    color: #009688; /* Teal/Green for sub-headlines - friendly, results */
+    font-size: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+section h4 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+p, li {
+    margin-bottom: 1em;
+    font-size: 1em;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.step {
+    margin-bottom: 2em;
+    padding: 1.5em;
+    background-color: #f0f8ff; /* AliceBlue - very light blue for steps */
+    border-left: 5px solid #00bfff; /* Bright blue accent for steps */
+    border-radius: 5px;
+}
+
+.step img {
+    display: block;
+    margin: 0.5em auto 1em auto; /* Center images within steps */
+    max-width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.key-message {
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    font-size: 1.1em;
+    padding: 0.5em;
+    background-color: #e7f3ff;
+    border-radius: 4px;
+}
+
+#call-to-action {
+    background-color: #e0f7fa; /* Light cyan - inviting for CTA */
+    text-align: center;
+    border-top: 3px solid #00bfff;
+}
+
+#call-to-action img { /* QR Code */
+    margin-bottom: 1em;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+#call-to-action h3 {
+    font-size: 1.6em;
+    color: #00796b; /* Darker teal for CTA emphasis */
+}
+
+footer {
+    text-align: center;
+    padding: 1.5em;
+    background-color: #333;
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    section {
+        padding: 1.5em 1em;
+        margin: 0.5em;
+    }
+    section h2 {
+        font-size: 1.6em;
+    }
+    section h3 {
+        font-size: 1.3em;
+    }
+}

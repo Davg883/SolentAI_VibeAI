@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBE AI: Pitch Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic modal styling - can be enhanced in style.css */
+        .modal { display: none; }
+        .modal.active { display: flex; }
+        /* Simple fade-in animation */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        /* Add other custom styles if needed */
+        body {
+            background-color: #111827; /* Dark background */
+            color: #E5E7EB; /* Light text */
+        }
+        .cyan-accent { color: #06B6D4; }
+        .cyan-bg { background-color: #06B6D4; }
+        .cyan-border { border-color: #06B6D4; }
+        .section-heading {
+            @apply text-3xl font-bold mb-4 text-center cyan-accent;
+        }
+        .section-subheading {
+            @apply text-xl text-gray-400 mb-8 text-center max-w-3xl mx-auto;
+        }
+        .card {
+            @apply bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-cyan-500 transition duration-300;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.3);
+        }
+        .card img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .card:hover img {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+        .app-title {
+            @apply text-xl font-semibold mb-2 cyan-accent;
+        }
+        .app-description {
+            @apply text-gray-400 text-sm mb-3 leading-relaxed;
+        }
+        .app-embodiment {
+            @apply text-xs text-cyan-300 mb-3 italic;
+        }
+        .view-details-btn {
+            @apply mt-4 w-full cyan-bg text-gray-900 font-bold py-2 px-4 rounded hover:bg-cyan-500 transition duration-300 text-sm;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation (Optional Fixed Header) -->
+    <nav class="bg-gray-900 sticky top-0 z-50 shadow-md py-3">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold cyan-accent">Solent AI</div>
+            <div class="space-x-4 text-sm md:text-base">
+                <a href="#opportunity" class="hover:text-cyan-400 transition duration-300">Opportunity</a>
+                <a href="#solution" class="hover:text-cyan-400 transition duration-300">Solution</a>
+                <a href="#proof" class="hover:text-cyan-400 transition duration-300">Proof</a>
+                <a href="#offering" class="hover:text-cyan-400 transition duration-300">Offering</a>
+                <a href="#trust" class="hover:text-cyan-400 transition duration-300">Trust</a>
+                <a href="#ask" class="hover:text-cyan-400 transition duration-300">Ask</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center text-center bg-gray-900 relative overflow-hidden px-6 py-20">
+        <!-- Optional: Add subtle background animation/particles here -->
+        <div class="z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+                <span class="cyan-accent">VIBE AI:</span> Empowering the Isle of Wight
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Bridging the AI gap with accessible, ethical, and community-focused solutions. Building a future where technology benefits everyone, locally.
+            </p>
+            <a href="#opportunity" class="cyan-bg text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-cyan-500 transition duration-300 text-lg">
+                Discover the Opportunity
+            </a>
+        </div>
+        <!-- Simple particle effect placeholder -->
+        <div id="particles-js" class="absolute inset-0 z-0 opacity-20"></div>
+    </section>
+
+    <!-- The Opportunity & Challenge Section -->
+    <section id="opportunity" class="py-20 px-6 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="section-heading">The Isle of Wight's AI Opportunity</h2>
+            <p class="section-subheading">
+                National trends show a growing AI knowledge and implementation gap. Locally, this translates to untapped potential for businesses and communities. VIBE AI addresses this directly.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="pr-4">
+                    <h3 class="text-2xl font-semibold mb-3 cyan-accent">The Challenge: An Accessibility Gap</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        While AI offers <strong class="cyan-accent">transformative potential</strong> (as highlighted by experts like those on the Steven Bartlett podcast), accessing and implementing these tools remains a hurdle for many local businesses, charities, and individuals. There's a critical need for <strong class="cyan-accent">practical guidance and support</strong> tailored to local needs.
+                    </p>
+                    <h3 class="text-2xl font-semibold mt-8 mb-4 cyan-accent">The VIBE AI Approach</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-start">
+                                <i class="fas fa-brain fa-2x cyan-accent mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-200">Demystifying AI</h4>
+                                    <p class="text-gray-400 text-sm">We make AI understandable and accessible for everyone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-start">
+                                <i class="fas fa-chalkboard-teacher fa-2x cyan-accent mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-200">Empowering Through Learning</h4>
+                                    <p class="text-gray-400 text-sm">Our CoCreate Spaces & Workshops offer practical, hands-on AI skill-building.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-start">
+                                <i class="fas fa-rocket fa-2x cyan-accent mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-200">Delivering Tangible Value</h4>
+                                    <p class="text-gray-400 text-sm">We build real-world Proof-of-Concepts that solve local problems and showcase AI's impact.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mt-6 text-center md:text-left">...making AI accessible <strong class="cyan-accent">*for* the Island, *by* the Island.</strong></p>
+                </div>
+                <div class="pl-4 flex items-center justify-center">
+                    <img src="../Images/Map of Island Hero Image.jpg" alt="Isle of Wight AI Opportunity - Map with Network Lines" class="rounded-lg shadow-xl mx-auto border-2 border-cyan-700 max-h-[450px] object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introducing VIBE AI: The Solution Section -->
+    <section id="solution" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto text-center">
+            <h2 class="section-heading">Introducing VIBE AI: The Island's Solution</h2>
+            <p class="section-subheading">
+                VIBE AI is more than technology; it's a community-centric initiative designed to empower Islanders with the skills and tools to thrive in the AI era.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <i class="fas fa-users text-4xl cyan-accent mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Community Focused</h3>
+                    <p class="text-gray-400 text-sm">Built by and for Islanders, addressing specific <strong class="text-gray-300">local challenges</strong> and <strong class="text-gray-300">opportunities</strong>.</p>
+                </div>
+                <div class="card text-center">
+                    <i class="fas fa-tools text-4xl cyan-accent mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Accessible & Practical</h3>
+                    <p class="text-gray-400 text-sm"><strong class="text-gray-300">Demystifying AI</strong> through <strong class="text-gray-300">hands-on workshops</strong> and tangible, <strong class="text-gray-300">real-world applications</strong>.</p>
+                </div>
+                <div class="card text-center">
+                    <i class="fas fa-shield-alt text-4xl cyan-accent mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Ethical & Human-Centric</h3>
+                    <p class="text-gray-400 text-sm">Prioritizing <strong class="text-gray-300">responsible AI use</strong>, transparency, and keeping the "<strong class="text-gray-300">human in the loop</strong>".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Proven Ability: AI in Action Section -->
+    <section id="proof" class="py-20 px-6 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="section-heading">Our Proven Ability: AI in Action</h2>
+            <p class="section-subheading">
+                We don't just talk about AI; we build with it. These tangible results, created using accessible methods, demonstrate VIBE AI's practical impact and alignment with key industry trends. We also explore how AI could have amplified past innovators.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- App Showcase 1: Ferry Transparency Hub -->
+                <div class="card flex flex-col">
+                    <img src="../Images/Ferry Transparency App.jpg" alt="Ferry Transparency Hub Screenshot" class="rounded-t-lg mb-4 w-full object-cover h-80 md:h-96">
+                    <div class="flex-grow">
+                        <h3 class="app-title">Ferry Transparency Hub (PoC)</h3>
+                        <p class="app-description">
+                            Analyzed public data to provide insights into ferry service performance, demonstrating AI's power for community data analysis.
+                        </p>
+                        <p class="app-embodiment">
+                            <i class="fas fa-lightbulb mr-1"></i> Embodies: <strong>Data Democratization</strong> & Productivity Multiplier
+                        </p>
+                    </div>
+                    <button onclick="openModal('ferryModal')" class="view-details-btn">
+                        Find Out More
+                    </button>
+                </div>
+
+                <!-- App Showcase 2: Timber Cost & Margin Calculator -->
+                <div class="card flex flex-col">
+                    <img src="../Images/Timber Cost Calc.jpg" alt="Timber Cost Calculator Screenshot" class="rounded-t-lg mb-4 w-full object-cover h-80 md:h-96">
+                    <div class="flex-grow">
+                        <h3 class="app-title">Timber Cost & Margin Calculator</h3>
+                        <p class="app-description">
+                            A practical tool for local artisans, showcasing how AI can streamline complex calculations and improve business efficiency.
+                        </p>
+                        <p class="app-embodiment">
+                            <i class="fas fa-lightbulb mr-1"></i> Embodies: <strong>Democratization of Creation</strong> & Cost Saving
+                        </p>
+                    </div>
+                     <button onclick="openModal('timberModal')" class="view-details-btn">
+                        Find Out More
+                    </button>
+                </div>
+
+                <!-- App Showcase 3: Sawdust Information App -->
+                <div class="card flex flex-col">
+                    <img src="../Images/Sawdust App.jpg" alt="Sawdust Info App Screenshot" class="rounded-t-lg mb-4 w-full object-cover h-80 md:h-96">
+                    <div class="flex-grow">
+                        <h3 class="app-title">Sawdust Information App (PoC)</h3>
+                        <p class="app-description">
+                            Demonstrates AI's ability to synthesize information and present it accessibly, turning raw data into useful knowledge for specific industries.
+                        </p>
+                         <p class="app-embodiment">
+                            <i class="fas fa-lightbulb mr-1"></i> Embodies: <strong>Knowledge Synthesis</strong> & AI Prompt Engineering
+                        </p>
+                    </div>
+                     <button onclick="openModal('sawdustModal')" class="view-details-btn">
+                        Find Out More
+                    </button>
+                </div>
+
+                <!-- App Showcase 4: Cashflow Analysis Dashboard -->
+                <div class="card flex flex-col">
+                    <img src="../Images/Cashflow App.jpg" alt="Cashflow Dashboard Screenshot" class="rounded-t-lg mb-4 w-full object-cover h-80 md:h-96">
+                    <div class="flex-grow">
+                        <h3 class="app-title">Cashflow Analysis Dashboard (PoC)</h3>
+                        <p class="app-description">
+                            Illustrates how AI can provide complex financial insights through intuitive interfaces, aiding local business decision-making.
+                        </p>
+                         <p class="app-embodiment">
+                            <i class="fas fa-lightbulb mr-1"></i> Embodies: <strong>Productivity Multiplier</strong> & Data Visualization
+                        </p>
+                    </div>
+                     <button onclick="openModal('cashflowModal')" class="view-details-btn">
+                        Find Out More
+                    </button>
+                </div>
+
+                <!-- #VIBEThroughTime Card 1: Marconi -->
+                <div class="card flex flex-col">
+                    <img src="../Images/Marconi AI Poster.png" alt="Marconi AI Poster" class="rounded-t-lg mb-4 w-full object-cover h-80 md:h-96">
+                    <div class="flex-grow">
+                        <h3 class="app-title">#VIBEThroughTime: Amplifying Marconi's Genius</h3>
+                        <p class="app-description">
+                            How AI (LLMs for data analysis, computational simulation for design) could have supercharged Marconi's wireless revolution, accelerating breakthroughs and expanding impact.
+                        </p>
+                        <p class="app-embodiment">
+                            <i class="fas fa-broadcast-tower mr-1"></i> Embodies: <strong>Accelerated R&D</strong> & Enhanced Innovation
+                        </p>
+                    </div>
+                    <button onclick="openModal('marconiCombinedModal')" class="view-details-btn">
+                        Find Out More
+                    </button>
+                </div>
+
+                <!-- #VIBEThroughTime Card 2: Isabella de Fortibus -->
+                <div class="card flex flex-col">
+                    <img src="../Images/Hero image of isabella.jpg" alt="Isabella de Fortibus" class="rounded-t-lg mb-4 w-full object-cover h-80 md:h-96">
+                    <div class="flex-grow">
+                        <h3 class="app-title">#VIBEThroughTime: Isabella - The Count of Coin</h3>
+                        <p class="app-description">
+                           From Carisbrooke, Isabella de Fortibus commanded a vast medieval enterprise. AI could have revolutionized her estate management, financial oversight, and strategic decision-making.
+                        </p>
+                        <p class="app-embodiment">
+                            <i class="fas fa-chess-queen mr-1"></i> Embodies: <strong>AI-Powered Administration</strong> & Strategic Management
+                        </p>
+                    </div>
+                    <button onclick="openModal('isabellaModal')" class="view-details-btn">
+                        Find Out More
+                    </button>
+                </div>
+
+            </div>
+             <p class="text-center text-gray-400 mt-8 text-lg">
+                These examples, both current and historical thought experiments, prove our ability to deliver <span class="cyan-accent font-semibold">tangible results</span> and think innovatively about AI's application – the core skills crucial today.
+            </p>
+        </div>
+    </section>
+
+    <!-- The VIBE AI Offering & Value Section -->
+    <section id="offering" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="section-heading">The VIBE AI Offering & Value</h2>
+            <p class="section-subheading">
+                We provide practical pathways for AI adoption, delivering high community value inspired by successful models like Julia McCoy's First Movers Labs – focusing on impact over inflated costs.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card">
+                    <i class="fas fa-chalkboard-teacher text-3xl cyan-accent mb-3"></i>
+                    <h3 class="text-xl font-semibold mb-2">CoCreate Spaces & Workshops</h3>
+                    <p class="text-gray-400 text-sm">Hands-on learning environments to build AI literacy and practical skills within the community.</p>
+                </div>
+                <div class="card">
+                     <i class="fas fa-cogs text-3xl cyan-accent mb-3"></i>
+                    <h3 class="text-xl font-semibold mb-2">Bespoke AI Solutions (PoCs)</h3>
+                    <p class="text-gray-400 text-sm">Developing tailored proof-of-concept applications (like those showcased) to solve specific local business or community challenges.</p>
+                </div>
+                <div class="card">
+                     <i class="fas fa-comments text-3xl cyan-accent mb-3"></i>
+                    <h3 class="text-xl font-semibold mb-2">AI Strategy & Consultation</h3>
+                    <p class="text-gray-400 text-sm">Guiding local organizations on integrating AI effectively and ethically into their operations.</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 mt-8 text-lg">
+                Our offerings provide immense collective value, delivering skills and solutions comparable to costly alternatives but tailored for accessible community benefit.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Trust VIBE AI? Section -->
+    <section id="trust" class="py-20 px-6 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="section-heading">Why Trust VIBE AI?</h2>
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/4 text-center">
+                    <img src="../Images/Gibly Dave.png" alt="Founder Photo" class="rounded-full shadow-lg mx-auto mb-4 border-4 border-cyan-500">
+                    <h3 class="text-2xl font-semibold cyan-accent">David G.</h3>
+                    <p class="text-gray-400">Founder & AI Implementer</p>
+                    <p class="text-sm text-gray-500 mt-2">Passionate about leveraging technology for local impact.</p>
+                </div>
+                <div class="md:w-3/4">
+                    <h3 class="text-2xl font-semibold mb-4">Our Guiding Principles:</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><i class="fas fa-check-circle cyan-accent mr-2"></i><span class="font-semibold">Human in the Loop:</span> Ensuring AI assists, not replaces, human judgment and creativity.</li>
+                        <li><i class="fas fa-check-circle cyan-accent mr-2"></i><span class="font-semibold">By and For Islanders:</span> Deeply rooted in the local community, addressing genuine needs.</li>
+                        <li><i class="fas fa-check-circle cyan-accent mr-2"></i><span class="font-semibold">Transparency & Ethics:</span> Committed to responsible development and deployment of AI.</li>
+                        <li><i class="fas fa-check-circle cyan-accent mr-2"></i><span class="font-semibold">Proven Capability:</span> Demonstrated ability to build functional AI-powered applications (as shown above).</li>
+                    </ul>
+                     <p class="mt-6 text-gray-400 italic">
+                        We combine technical know-how with a deep understanding of the local context, making us a trusted partner for AI adoption on the Isle of Wight.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Vision & Call to Action (Ask) Section -->
+    <section id="ask" class="py-20 px-6 bg-gray-900 text-center">
+        <div class="container mx-auto">
+            <h2 class="section-heading">The Vision: An AI-Empowered Island</h2>
+            <p class="section-subheading max-w-4xl mx-auto">
+                Our vision is an Isle of Wight where businesses thrive, communities are better served, and individuals are equipped with the skills for the future – all powered by accessible and ethical AI, facilitated by VIBE AI.
+            </p>
+
+            <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-3xl mx-auto border border-cyan-500">
+                <h3 class="text-2xl font-semibold mb-4 cyan-accent">Our Ask to <span id="investorName1">[INVESTOR_NAME_PLACEHOLDER]</span></h3>
+                <p class="text-gray-300 mb-6">
+                    We are seeking [Specify Amount/Type of Funding/Partnership - e.g., £X,XXX seed funding / Strategic Partnership] to scale our impact. This investment will enable us to:
+                </p>
+                <ul class="text-left space-y-2 mb-6 text-gray-300 list-disc list-inside pl-4">
+                    <li>Expand CoCreate Spaces to reach more communities.</li>
+                    <li>Develop further high-impact PoC applications for local sectors.</li>
+                    <li>Deliver workshops to train <span class="font-bold cyan-accent">[X00+]</span> individuals and support <span class="font-bold cyan-accent">[Y0+]</span> businesses in the next year.</li>
+                    <li>[Add another specific key use of funds].</li>
+                </ul>
+                <p class="text-gray-300 mb-8">
+                    Partnering with VIBE AI offers <span id="investorName2">[INVESTOR_NAME_PLACEHOLDER]</span> a unique opportunity to invest in tangible community impact, foster local innovation, and be at forefront of ethical AI adoption on the Isle of Wight.
+                </p>
+                <button onclick="openModal('contactModal')" class="cyan-bg text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-cyan-500 transition duration-300 text-lg">
+                    Let's Build the Future Together
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-6 border-t border-gray-700">
+        <p class="text-gray-500 text-sm">&copy; 2025 VIBE AI. Empowering the Isle of Wight.</p>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Ferry Modal -->
+    <div id="ferryModal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-2xl w-full relative fade-in border border-cyan-500">
+            <button onclick="closeModal('ferryModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="text-2xl font-semibold mb-4 cyan-accent">Ferry Transparency Hub (PoC)</h3>
+            <img src="../Images/Ferry Transparency App.jpg" alt="Ferry Hub Detail" class="rounded-lg mb-4 w-full max-h-[400px] object-contain">
+            <p class="text-gray-300 mb-3">This proof-of-concept demonstrated how AI (specifically data analysis and visualization techniques) could be applied to publicly available ferry performance data.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">Problem Solved:</span> Lack of easily accessible, aggregated insights into ferry reliability and trends.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">AI Approach:</span> Data scraping (simulated/manual for PoC), data cleaning, statistical analysis, and generation of charts/summaries to highlight key performance indicators.</p>
+            <p class="text-gray-300"><span class="font-semibold">Impact/Value:</span> Showcased the potential for AI to increase transparency and provide valuable data for community discussion and planning. It highlighted VIBE AI's ability to tackle locally relevant data challenges.</p>
+        </div>
+    </div>
+
+    <!-- Timber Modal -->
+    <div id="timberModal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-2xl w-full relative fade-in border border-cyan-500">
+            <button onclick="closeModal('timberModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="text-2xl font-semibold mb-4 cyan-accent">Timber Cost & Margin Calculator</h3>
+             <img src="../Images/Timber Cost Calc.jpg" alt="Timber Coster Detail" class="rounded-lg mb-4 w-full max-h-[400px] object-contain">
+            <p class="text-gray-300 mb-3">A practical web application built to help local woodworkers and artisans quickly calculate material costs, labour, and profit margins for projects.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">Problem Solved:</span> Time-consuming and potentially error-prone manual calculations for project quoting and costing.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">AI Approach:</span> While simpler than deep learning, this uses structured logic and potentially AI-assisted data input/validation (e.g., suggesting standard timber sizes/costs) to streamline the process. It demonstrates building user-friendly interfaces for complex tasks.</p>
+            <p class="text-gray-300"><span class="font-semibold">Impact/Value:</span> Directly addresses a need for local craftspeople, saving time and improving accuracy. It exemplifies the "Democratization of Creation" by providing a sophisticated tool through an accessible interface, built rapidly using modern techniques.</p>
+        </div>
+    </div>
+
+    <!-- Sawdust Modal -->
+    <div id="sawdustModal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-2xl w-full relative fade-in border border-cyan-500">
+            <button onclick="closeModal('sawdustModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="text-2xl font-semibold mb-4 cyan-accent">Sawdust Information App (PoC)</h3>
+             <img src="../Images/Sawdust App.jpg" alt="Sawdust App Detail" class="rounded-lg mb-4 w-full max-h-[400px] object-contain">
+            <p class="text-gray-300 mb-3">This proof-of-concept explored using AI (likely Large Language Models) to synthesize information about the uses, disposal, and regulations surrounding sawdust.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">Problem Solved:</span> Difficulty finding consolidated, easy-to-understand information on a niche industrial byproduct.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">AI Approach:</span> Information retrieval and summarization using LLMs, potentially trained or prompted with specific documents or web sources related to timber and waste management.</p>
+            <p class="text-gray-300"><span class="font-semibold">Impact/Value:</span> Demonstrated AI's ability to act as a knowledge synthesis tool, turning scattered information into actionable insights. Showcased the crucial skill of "knowing how to use the tools" (prompting, structuring output) as highlighted by experts.</p>
+        </div>
+    </div>
+
+     <!-- Cashflow Modal -->
+    <div id="cashflowModal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-2xl w-full relative fade-in border border-cyan-500">
+            <button onclick="closeModal('cashflowModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="text-2xl font-semibold mb-4 cyan-accent">Cashflow Analysis Dashboard (PoC)</h3>
+             <img src="../Images/Cashflow App.jpg" alt="Cashflow Dash Detail" class="rounded-lg mb-4 w-full max-h-[400px] object-contain">
+            <p class="text-gray-300 mb-3">A conceptual dashboard illustrating how AI could analyze financial data (e.g., from spreadsheets or accounting software) to provide visual cashflow projections and insights.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">Problem Solved:</span> Small businesses often struggle with complex cashflow forecasting and identifying potential issues.</p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">AI Approach:</span> Time-series analysis, pattern recognition, and potentially predictive modeling applied to financial data, presented through clear visualizations (charts, graphs).</p>
+            <p class="text-gray-300"><span class="font-semibold">Impact/Value:</span> Showcased AI as a significant "Productivity Multiplier" for financial management, enabling better business decisions through accessible data visualization. Demonstrated potential for high-value business tools.</p>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-lg w-full relative fade-in border border-cyan-500 text-center">
+            <button onclick="closeModal('contactModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="text-2xl font-semibold mb-4 cyan-accent">Let's Connect</h3>
+            <p class="text-gray-300 mb-6">
+                Thank you for considering a partnership with VIBE AI, <span id="investorName3">[INVESTOR_NAME_PLACEHOLDER]</span>. Let's discuss how we can work together to build an AI-empowered future for the Isle of Wight.
+            </p>
+            <a href="[YOUR_CALENDLY_OR_CONTACT_LINK_PLACEHOLDER]" target="_blank" class="block w-full text-center cyan-bg text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-cyan-500 transition duration-300 mb-4">
+                Schedule a Meeting
+            </a>
+            <p class="text-gray-400 text-sm">Or reach out directly:</p>
+            <p class="text-gray-300 mt-1">[YOUR_EMAIL_PLACEHOLDER]</p>
+            <p class="text-gray-300">[YOUR_PHONE_PLACEHOLDER (Optional)]</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Optional: Add particle.js library if you want that effect -->
+    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+    <!-- <script> particlesJS.load('particles-js', 'particles.json', function() { console.log('callback - particles.js config loaded'); }); </script> -->
+
+    <!-- Marconi Combined Modal -->
+    <div id="marconiCombinedModal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-2xl w-full relative fade-in border border-cyan-500">
+            <button onclick="closeModal('marconiCombinedModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="text-2xl font-semibold mb-4 cyan-accent">#VIBEThroughTime: Amplifying Marconi's Genius with AI</h3>
+            <img src="../Images/Marconi AI Poster.png" alt="Marconi AI Poster" class="rounded-lg mb-4 w-full max-h-[300px] object-contain">
+            <p class="text-gray-300 mb-3">
+                Guglielmo Marconi, a pioneer in wireless communication, possessed profound knowledge in physics and electrical engineering. His innovative skills led to world-changing inventions, despite facing immense challenges in data analysis and experimental limitations of his era.
+            </p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">How AI Could Have Accelerated Marconi:</span></p>
+            <ul class="list-disc list-inside text-gray-300 mb-3 space-y-2">
+                <li><strong>Advanced Data Analysis (LLMs):</strong> An AI like a Large Language Model could have rapidly processed vast scientific literature and experimental data, identifying crucial patterns, correlations (e.g., signal strength vs. atmospheric conditions), and prior research, significantly speeding up knowledge discovery.</li>
+                <li><strong>Computational Simulation:</strong> AI-powered simulation software could have modeled antenna designs and radio wave propagation, allowing for virtual experimentation and optimization, reducing reliance on time-consuming physical prototypes.</li>
+                <li><strong>Intelligent Data Processing:</strong> Systems to manage and correlate data from numerous experiments or dispersed stations would have enhanced experimental efficiency and insight generation.</li>
+                <li><strong>AI-Assisted Design & Prototyping:</strong> Tools for analyzing signal interference or enhancing faint signals could have refined receiver sensitivity and overall system design.</li>
+            </ul>
+            <p class="text-gray-300"><span class="font-semibold">Impact:</span> Access to these AI technologies would have dramatically accelerated Marconi's research cycles, enabled faster iterations, potentially leading to earlier and even more advanced breakthroughs in global communication by overcoming limitations and amplifying his analytical capabilities.</p>
+        </div>
+    </div>
+
+    <!-- Isabella de Fortibus Modal -->
+    <div id="isabellaModal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-2xl w-full relative fade-in border border-cyan-500">
+            <button onclick="closeModal('isabellaModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <h3 class="text-2xl font-semibold mb-4 cyan-accent">#VIBEThroughTime: Isabella de Fortibus - The Count of Coin & Quill</h3>
+            <img src="../Images/Hero image of isabella.jpg" alt="Isabella de Fortibus" class="rounded-lg mb-4 w-full max-h-[300px] object-contain">
+            <p class="text-gray-300 mb-3">
+                From her Isle of Wight stronghold at Carisbrooke, Isabella de Fortibus, Countess of Devon and Lady of the Isle of Wight, commanded an empire on parchment before she was thirty. A young widow defying expectations, she chose rule over remarriage, wielding immense wealth and controlling lands stretching from the Solent's edge to Yorkshire.
+            </p>
+            <p class="text-gray-300 mb-3">
+                Carisbrooke was the nerve centre, processing wealth from far-flung estates. Stewards wrestled with yields, bailiffs' reports arrived, and clerks meticulously updated ledgers. This intricate operation, involving revenues like silver pennies and gold coins, demanded sharp minds, skilled legal advisors, and even sophisticated Italian financiers like the Riccardi, weaving Carisbrooke into international networks.
+            </p>
+            <p class="text-gray-300 mb-3"><span class="font-semibold">How AI Could Have Revolutionized Isabella's Command:</span></p>
+            <ul class="list-disc list-inside text-gray-300 mb-3 space-y-2">
+                <li><strong>AI-Powered Estate Management:</strong> Systems to analyze agricultural yields, predict resource needs, and optimize logistics across diverse manors, providing real-time insights for better decision-making.</li>
+                <li><strong>Advanced Financial Oversight (LLMs & Data Analysis):</strong> AI could process ledgers, track revenues and expenditures, detect anomalies or fraud, and model financial scenarios, offering Isabella unprecedented control and forecasting ability.</li>
+                <li><strong>Strategic Communication & Network Analysis:</strong> Tools to manage correspondence, analyze relationships within her vast network of tenants and allies, and even assess geopolitical risks based on available information.</li>
+                <li><strong>Knowledge Management & Legal Assistance:</strong> An AI could organize and search vast legal documents, charters, and land agreements, providing instant access to critical information for legal advisors and Isabella herself.</li>
+            </ul>
+            <p class="text-gray-300"><span class="font-semibold">Impact:</span> AI could have provided Isabella with unparalleled administrative efficiency, strategic insight, and financial control, further solidifying her power and potentially expanding her influence and the prosperity of her domains by optimizing resource allocation and mitigating risks.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
